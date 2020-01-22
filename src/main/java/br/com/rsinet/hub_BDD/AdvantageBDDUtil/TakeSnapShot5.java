@@ -12,7 +12,7 @@ import org.openqa.selenium.WebDriver;
 public class TakeSnapShot5 {
 public static WebDriver driver;
 	
-	public static void tirarPrintsDeFalha(String nomeDaImagem, WebDriver driver) throws Exception {
+	public static void tirarPrintsDeAcerto(String nomeDaImagem, WebDriver driver) throws Exception {
         TakesScreenshot scrShot = ((TakesScreenshot) driver);
         File srcFile = scrShot.getScreenshotAs(OutputType.FILE);
         String imageFileDir = "C:\\Users\\gehaime.silva\\Pictures\\TesteBDDAcertos";

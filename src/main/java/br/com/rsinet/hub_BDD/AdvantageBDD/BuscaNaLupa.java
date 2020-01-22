@@ -2,10 +2,13 @@ package br.com.rsinet.hub_BDD.AdvantageBDD;
 
 import java.util.concurrent.TimeUnit;
 
+import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 
+import br.com.rsinet.hub_BDD.AdvantageBDDUtil.TakeSnapShot5;
 import br.com.rsinet.hub_BDD.PageFactory.BuscaNaLupa2;
 //import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
@@ -41,5 +44,10 @@ public class BuscaNaLupa {
 	@Then("^o usuario vai escolher o seu tablet$")
 	public void o_usuario_vaie_escolhe_o_seu_tablet() throws Throwable {
 	   buscanalupa.HPELITEPAD1000G2();
+	   String resposta = driver.findElement(By.xpath("//*[@id=\"menuUserLink\"]/span")).getText();
+		System.out.println(resposta);
+		Assert.assertFalse("Busca na lupa bem sucedida",resposta.equals("Ok"));
+		TakeSnapShot5.tirarPrintsDeAcerto("busca na lupa", driver);
+	
 	}
 }
