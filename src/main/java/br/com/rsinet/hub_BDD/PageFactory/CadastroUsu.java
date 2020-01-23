@@ -4,8 +4,10 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.Select;
 
 import br.com.rsinet.hub_BDD.AdvantageBDDFerramentas.Constast2;
+//import br.com.rsinet.hub_BDD.AdvantageBDDFerramentas.Constast2;
 import br.com.rsinet.hub_BDD.AdvantageBDDFerramentas.Excel;
 
 public class CadastroUsu {
@@ -60,7 +62,7 @@ public class CadastroUsu {
 		nome.sendKeys(Excel.getCellData(4, 1));
 		sobrenome.sendKeys(Excel.getCellData(5, 1));
 		telefone.sendKeys(Excel.getCellData(6, 1));
-		pais.sendKeys(Excel.getCellData(7, 1));
+		new Select(pais).selectByVisibleText(Excel.getCellData(7, 1));
 		cidade.sendKeys(Excel.getCellData(8, 1));
 		endereco.sendKeys(Excel.getCellData(9, 1));
 		estado.sendKeys(Excel.getCellData(10, 1));

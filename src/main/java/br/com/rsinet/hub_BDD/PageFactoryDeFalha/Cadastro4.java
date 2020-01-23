@@ -4,7 +4,11 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+//import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Select;
+
+import br.com.rsinet.hub_BDD.AdvantageBDDFerramentas.ConstantFalha;
+import br.com.rsinet.hub_BDD.AdvantageBDDFerramentas.ExcelDeFalha;
 
 public class Cadastro4 {
 	
@@ -48,53 +52,22 @@ public class Cadastro4 {
 	public void novaConta() {
 		novaConta.sendKeys(Keys.ENTER);
 	}
+	public void CadastrodeFalha() throws Exception {
+		ExcelDeFalha.setExcelFile(ConstantFalha.caminho + ConstantFalha.arquivo, "Planilha1");
+		usuario.sendKeys(ExcelDeFalha.getCellData(0, 1));
+		email.sendKeys(ExcelDeFalha.getCellData(1, 1));
+		senha.sendKeys(ExcelDeFalha.getCellData(2, 1));
+		confirmaSenha.sendKeys(ExcelDeFalha.getCellData(3, 1));
+		nome.sendKeys(ExcelDeFalha.getCellData(4, 1));
+		sobrenome.sendKeys(ExcelDeFalha.getCellData(5, 1));
+		telefone.sendKeys(ExcelDeFalha.getCellData(6, 1));
+		new Select(pais).selectByVisibleText(ExcelDeFalha.getCellData(7, 1));
+		cidade.sendKeys(ExcelDeFalha.getCellData(8, 1));
+		endereco.sendKeys(ExcelDeFalha.getCellData(9, 1));
+		estado.sendKeys(ExcelDeFalha.getCellData(10, 1));
+		Cep.sendKeys(ExcelDeFalha.getCellData(11, 1));
 
-	public void usuario(String userName) {
-		usuario.sendKeys(userName);
-	}
 
-	public void email(String Email) {
-		email.sendKeys(Email);
-	}
-
-	public void senha(String password) {
-		senha.sendKeys(password);
-	}
-
-	public void confirmaSenha(String senhas) {
-		confirmaSenha.sendKeys(senhas);
-	}
-
-	public void nome(String firstname) {
-		nome.sendKeys(firstname);
-	}
-
-	public void sobrenome(String lastname) {
-		sobrenome.sendKeys(lastname);
-	}
-
-	public void telefone(String phonenumber) {
-		telefone.sendKeys(phonenumber);
-	}
-
-	public void pais(String country) {
-	new Select(pais).selectByVisibleText("Brazil");
-	}
-
-	public void cidade(String city) {
-		cidade.sendKeys(city);
-	}
-
-	public void endereco(String address) {
-		endereco.sendKeys(address);
-	}
-
-	public void estado(String state) {
-		estado.sendKeys(state);
-	}
-
-	public void Cep(String postalcode) {
-		Cep.sendKeys(postalcode);
 	}
 
 	public void aceito() {

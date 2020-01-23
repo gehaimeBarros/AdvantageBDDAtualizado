@@ -1,6 +1,5 @@
 package br.com.rsinet.hub_BDD.AdvantageBDDFalha;
 
-import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -13,7 +12,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 //import org.openqa.selenium.support.ui.Select;
 
+import br.com.rsinet.hub_BDD.AdvantageBDDFerramentas.DriverFactory;
 import br.com.rsinet.hub_BDD.AdvantageBDDUtil.TakeSnapShot3;
+//import br.com.rsinet.hub_BDD.AdvantageBDDUtil.TakeSnapShot3;
 //import br.com.rsinet.hub_BDD.PageFactory.CadastroUsu;
 import br.com.rsinet.hub_BDD.PageFactoryDeFalha.Cadastro4;
 import cucumber.api.java.en.Given;
@@ -27,83 +28,26 @@ private WebDriver driver = new ChromeDriver();
 	
 	@Given("^que usuario esta na Pagina inicial$")
 	public void que_usuario_esta_na_Pagina_inicial() throws Throwable {
-		
+		driver=DriverFactory.inicializador();
 		cadastroCliente = PageFactory.initElements(driver, Cadastro4.class);
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
-		driver.get("https://www.advantageonlineshopping.com/#/");
-	}
+		}
 
 	@When("^o usuario clica no menu$")
 	public void o_usuario_clica_no_menu() throws Throwable {
-	    cadastroCliente.menu();
+	   cadastroCliente.menu();
 	}
 
-	@When("^o usuario clica em novaConta$")
-	public void o_usuario_clica_em_novaConta() throws Throwable {
+	@When("^o usuario clica criar uma nova Conta$")
+	public void o_usuario_clica_criar_uma_nova_Conta() throws Throwable {
 	    cadastroCliente.novaConta();
 	}
 
-	@When("^o usuario digita o nome de usuario \"([^\"]*)\"$")
-	public void o_usuario_digita_o_nome_de_usuario(String userName) throws Throwable {
-	   cadastroCliente.usuario(userName);
+	@When("^o usuario ira preencher o cadastro com seus dados$")
+	public void o_usuario_ira_preencher_o_cadastro_com_seus_dados() throws Throwable {
+	    cadastroCliente.CadastrodeFalha();
+
 	}
 
-	@When("^o usuario digita o email \"([^\"]*)\"$")
-	public void o_usuario_digita_o_email(String Email) throws Throwable {
-	    cadastroCliente.email(Email);
-	}
-
-	@When("^o usuario digita o senha \"([^\"]*)\"$")
-	public void o_usuario_digita_o_senha(String password) throws Throwable {
-	   cadastroCliente.senha(password);
-	}
-
-	@When("^o usuario digita o confirmaSenha \"([^\"]*)\"$")
-	public void o_usuario_digita_o_confirmaSenha(String senhas) throws Throwable {
-	    cadastroCliente.confirmaSenha(senhas);
-	    TakeSnapShot3.tirarPrintsDeFalha("CadastroFalha ", driver);
-	}
-
-	@When("^o usuario digita o nome \"([^\"]*)\"$")
-	public void o_usuario_digita_o_nome(String firstname) throws Throwable {
-	    cadastroCliente.nome(firstname);
-	}
-
-	@When("^o usuario digita o sobrenome \"([^\"]*)\"$")
-	public void o_usuario_digita_o_sobrenome(String lastname) throws Throwable {
-	    cadastroCliente.sobrenome(lastname);
-	}
-
-	@When("^o usuario digita o telefone \"([^\"]*)\"$")
-	public void o_usuario_digita_o_telefone(String phonenumber) throws Throwable {
-	    cadastroCliente.telefone(phonenumber);
-	}
-
-	@When("^o usuario digita o pais \"([^\"]*)\"$")
-	public void o_usuario_digita_o_pais(String country) throws Throwable {
-	    cadastroCliente.pais(country);
-	}
-
-	@When("^o usuario digita o nome de cidade \"([^\"]*)\"$")
-	public void o_usuario_digita_o_nome_de_cidade(String city) throws Throwable {
-	    cadastroCliente.cidade(city);
-	}
-
-	@When("^o usuario digita o endereco \"([^\"]*)\"$")
-	public void o_usuario_digita_o_endereco(String address) throws Throwable {
-	    cadastroCliente.endereco(address);
-	}
-
-	@When("^o usuario digita o nome de estado \"([^\"]*)\"$")
-	public void o_usuario_digita_o_nome_de_estado(String state) throws Throwable {
-	    cadastroCliente.estado(state);
-	}
-
-	@When("^o usuario digita o Cep \"([^\"]*)\"$")
-	public void o_usuario_digita_o_Cep(String postalcode) throws Throwable {
-	    cadastroCliente.Cep(postalcode);
-	}
 	@When("^o usuario clica em aceito$")
 	public void o_usuario_clica_em_aceito() throws Throwable {
 	    cadastroCliente.aceito();
@@ -115,7 +59,8 @@ private WebDriver driver = new ChromeDriver();
 	    String resposta = driver.findElement(By.xpath("/html/body/div[3]/section/article/sec-form/div[1]/div[2]/div/div[1]/div[2]/sec-view[1]/div/label")).getText();
 		System.out.println(resposta);
 		Assert.assertTrue("Senha incorreta",resposta.equals("Use maximum 12 character"));
-
+	    TakeSnapShot3.tirarPrintsDeFalha("Cadasatro de cliente falha", driver);
+		DriverFactory.Quit(driver);
 	}
 }
 
