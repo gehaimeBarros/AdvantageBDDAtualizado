@@ -3,6 +3,7 @@ package br.com.rsinet.hub_BDD.AdvantageBDDFalha;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 //import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 //import org.openqa.selenium.WebElement;
@@ -58,6 +59,8 @@ private WebDriver driver;
 	    String resposta = driver.findElement(By.xpath("/html/body/div[3]/section/article/sec-form/div[1]/div[2]/div/div[1]/div[2]/sec-view[1]/div/label")).getText();
 		System.out.println(resposta);
 		Assert.assertTrue("Senha incorreta",resposta.equals("Use maximum 12 character"));
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+		jse.executeScript("scrollBy(0,-500)", "");
 	    TakeSnapShot3.tirarPrintsDeFalha("Cadasatro de cliente falha", driver);
 		DriverFactory.Quit(driver);
 	}

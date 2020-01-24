@@ -41,8 +41,6 @@ public class BuscaNaLupa3 {
 		String resposta = driver.findElement(By.xpath("//*[@id=\"searchPage\"]/div[3]/div/label/span")).getText();
 		System.out.println(resposta);
 		Assert.assertFalse("No results for xiaomi",resposta.equals("Produto nao encontrado"));
-		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		jse.executeScript("scrollBy(0,400)", "");
 		JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeAsyncScript("window.setTimeout(arguments[arguments.length - 1], 2000);");
 		TakeSnapShot3.tirarPrintsDeFalha("Busca na lupa falha ", driver);
