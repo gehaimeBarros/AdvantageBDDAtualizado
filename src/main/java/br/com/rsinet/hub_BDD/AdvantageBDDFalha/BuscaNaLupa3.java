@@ -5,7 +5,6 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import br.com.rsinet.hub_BDD.AdvantageBDDFerramentas.DriverFactory;
@@ -18,7 +17,7 @@ import cucumber.api.java.en.When;
 
 public class BuscaNaLupa3 {
 
-	private WebDriver driver = new ChromeDriver();
+	private WebDriver driver ;
 	
 	private BuscaNaLupaS buscadeProduto;
 	@Given("^o usuario esta na Pagina Inicial$")

@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 //import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 //import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 //import org.openqa.selenium.support.FindBy;
 //import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
@@ -22,7 +21,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class Cadastro3 {
-private WebDriver driver = new ChromeDriver();
+private WebDriver driver;
 	
 	private Cadastro4 cadastroCliente;
 	
