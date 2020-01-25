@@ -4,7 +4,6 @@ package br.com.rsinet.hub_BDD.AdvantageBDD;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import br.com.rsinet.hub_BDD.AdvantageBDDFerramentas.DriverFactory;
@@ -15,7 +14,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class BuscaDeObjetoOO {
-	private WebDriver driver = new ChromeDriver();
+	private WebDriver driver;
 
 	private BuscaDeObjeto2 BuscaDeObjeto;
 
