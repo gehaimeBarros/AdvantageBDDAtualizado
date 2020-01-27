@@ -15,7 +15,7 @@ import cucumber.api.junit.Cucumber;
 		
 		features = "C:\\Users\\gehaime.silva\\Documents\\projeto\\WorkSpace\\AdvantageBDDTest\\WorkSpace\\AdvantageBDD\\RecursoFalha2\\BuscaDeObjetoFalhaa_Test.feature",
 		glue = "br.com.rsinet.hub_BDD.AdvantageBDDFalha",
-		plugin ="com.cucumber.listener.ExtentCucumberFormatter:C:\\Users\\gehaime.silva\\Pictures\\BDDReport.Falha\\CadastroDeuFalha.html",
+		plugin ="com.cucumber.listener.ExtentCucumberFormatter:C:\\Users\\gehaime.silva\\Pictures\\BDDReport.Falha\\BuscadeObjetoFalha.html",
 		monochrome = true,
 		dryRun = false,
 		tags = {"@Busca_por_Produto"
